@@ -40,7 +40,14 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
                 etNombre.setError(null);
                 etDescripcion.setError(null);
                 String nombre = etNombre.getText().toString(),
-                        descripcionComoCadena = etDescripcion.getText().toString();
+                descripcionComoCadena = etDescripcion.getText().toString();
+                int year = dtFechaReserva.getYear();
+                int month = dtFechaReserva.getMonth();
+                int dayOfMonth = dtFechaReserva.getDayOfMonth();
+
+                String fechaComoCadena = year + "-" + String.format("%02d", month) + "-" + String.format("%02d", dayOfMonth);
+                System.out.println(fechaComoCadena); // Salida: 2023-05-11
+
                 if ("".equals(nombre)) {
                     etNombre.setError("Escribe el nombre de la maquina");
                     etNombre.requestFocus();
@@ -52,10 +59,9 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Ver si es un entero
                 String descripcion = etDescripcion.getText().toString();
                 // Ya pasó la validación
-                Maquina nuevaMaquina = new Maquina(nombre, descripcion);
+                Maquina nuevaMaquina = new Maquina(nombre, descripcion,fechaComoCadena);
                 long id = maquinaController.nuevaMaquina(nuevaMaquina);
                 if (id == -1) {
                     // De alguna manera ocurrió un error

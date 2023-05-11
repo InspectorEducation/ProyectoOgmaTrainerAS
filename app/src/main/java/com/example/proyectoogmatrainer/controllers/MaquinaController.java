@@ -30,6 +30,7 @@ public class MaquinaController {
         ContentValues valoresParaInsertar = new ContentValues();
         valoresParaInsertar.put("nombre", maquina.getNombre());
         valoresParaInsertar.put("descripcion", maquina.getDescripcion());
+        valoresParaInsertar.put("fechaReserva",maquina.getFechaReserva());
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
     }
 
@@ -38,6 +39,7 @@ public class MaquinaController {
         ContentValues valoresParaActualizar = new ContentValues();
         valoresParaActualizar.put("nombre", maquinaEditada.getNombre());
         valoresParaActualizar.put("descripcion", maquinaEditada.getDescripcion());
+        valoresParaActualizar.put("fechaReserva",maquinaEditada.getFechaReserva());
         // where id...
         String campoParaActualizar = "id = ?";
         // ... = idMaquina
@@ -50,7 +52,7 @@ public class MaquinaController {
         // readable porque no vamos a modificar, solamente leer
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getReadableDatabase();
         // SELECT nombre, descripcion, id
-        String[] columnasAConsultar = {"nombre", "descripcion", "id"};
+        String[] columnasAConsultar = {"nombre", "descripcion","fechaReserva","id"};
         Cursor cursor = baseDeDatos.query(
                 NOMBRE_TABLA,//from maquinas
                 columnasAConsultar,
@@ -76,11 +78,12 @@ public class MaquinaController {
         // datos a la lista de maquinas
         do {
             // El 0 es el número de la columna, como seleccionamos
-            // nombre, edad,id entonces el nombre es 0, edad 1 e id es 2
+            // nombre, descripcioon,id entonces el nombre es 0, descripcion 1 e fecha es 2, id es 3
             String nombreObtenidoDeBD = cursor.getString(0);
             String descripcionObtenidaDeBD = cursor.getString(1);
-            long idMaquina = cursor.getLong(2);
-            Maquina maquinaObtenidaDeBD = new Maquina(nombreObtenidoDeBD, descripcionObtenidaDeBD, idMaquina);
+            String fechaReservaObtenidaDeBd = cursor.getString(2);
+            long idMaquina = cursor.getLong(3);
+            Maquina maquinaObtenidaDeBD = new Maquina(nombreObtenidoDeBD, descripcionObtenidaDeBD, fechaReservaObtenidaDeBd,idMaquina);
             maquinas.add(maquinaObtenidaDeBD);
         } while (cursor.moveToNext());
 

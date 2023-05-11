@@ -36,15 +36,14 @@ public class AdaptadorMaquinas extends RecyclerView.Adapter<AdaptadorMaquinas.My
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         // Obtener la maquina de nuestra lista gracias al índice i
         Maquina maquina = listaDeMaquinas.get(i);
-        System.out.println("INGRESO AL ADAPTADOR");
         // Obtener los datos de la lista
         String nombreMaquina = maquina.getNombre();
         String descripcionMaquina = maquina.getDescripcion();
-        System.out.println("SE OBTUVO NOMBRE MAQUINA");
-        System.out.println(nombreMaquina);
+        String fechaReservaMaquina = maquina.getFechaReserva();
         // Y poner a los TextView los datos con setText
         myViewHolder.nombre.setText(nombreMaquina);
         myViewHolder.descripcion.setText(descripcionMaquina);
+        myViewHolder.fechaReserva.setText(fechaReservaMaquina);
     }
 
     @Override
@@ -53,12 +52,13 @@ public class AdaptadorMaquinas extends RecyclerView.Adapter<AdaptadorMaquinas.My
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView nombre, descripcion;
+        TextView nombre, descripcion, fechaReserva;
 
         MyViewHolder(View itemView) {
             super(itemView);
             this.nombre = itemView.findViewById(R.id.tvNombre);
             this.descripcion = itemView.findViewById(R.id.tvDescripcion);
+            this.fechaReserva= itemView.findViewById(R.id.tvFechaReserva);
         }
     }
 }

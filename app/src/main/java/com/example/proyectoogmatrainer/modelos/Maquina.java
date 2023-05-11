@@ -5,14 +5,18 @@ public class Maquina {
     private String nombre;
     private String descripcion;
 
-    public Maquina(String nombre, String descripcion) {
+    private String fechaReserva;
+
+    public Maquina(String nombre, String descripcion, String fechaReserva) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.fechaReserva = fechaReserva;
     }
 
-    public Maquina(String nombre, String descripcion,long id) {
+    public Maquina(String nombre, String descripcion,String fechaReserva,long id) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.fechaReserva = fechaReserva;
         this.id = id;
     }
 
@@ -38,6 +42,14 @@ public class Maquina {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(String fechaReserva) {
+        this.fechaReserva = fechaReserva;
     }
 
     @Override

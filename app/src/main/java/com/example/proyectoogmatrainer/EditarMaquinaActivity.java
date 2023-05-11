@@ -38,7 +38,7 @@ public class EditarMaquinaActivity extends AppCompatActivity {
         long idMaquina = extras.getLong("idMaquina");
         String nombreMaquina = extras.getString("nombreMaquina");
         String descripcionMaquina = extras.getString("descripcionMaquina");
-        maquina = new Maquina(nombreMaquina, descripcionMaquina, idMaquina);
+        maquina = new Maquina(nombreMaquina, descripcionMaquina, "2023-05-11",idMaquina );
 
 
         // Ahora declaramos las vistas
@@ -91,7 +91,7 @@ public class EditarMaquinaActivity extends AppCompatActivity {
                     return;
                 }
                 // Si llegamos hasta aquí es porque los datos ya están validados
-                Maquina maquinaConNuevosCambios = new Maquina(nuevoNombre, nuevaDescri, maquina.getId());
+                Maquina maquinaConNuevosCambios = new Maquina(nuevoNombre, nuevaDescri,"2023-05-11" ,maquina.getId());
                 int filasModificadas = maquinaController.guardarCambios(maquinaConNuevosCambios);
                 if (filasModificadas != 1) {
                     // De alguna forma ocurrió un error porque se debió modificar únicamente una fila

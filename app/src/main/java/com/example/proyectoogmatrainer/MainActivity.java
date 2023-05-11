@@ -113,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Se refresco", Toast.LENGTH_SHORT).show();
             listaDeMaquinas = maquinaController.obtenerMaquinas();
             adaptadorMaquinas.setListaDeMaquinas(listaDeMaquinas);
-            System.out.println("MAQUINAS BD");
-            System.out.println(listaDeMaquinas.get(0).getNombre());
             adaptadorMaquinas.notifyDataSetChanged();
         }
 }
