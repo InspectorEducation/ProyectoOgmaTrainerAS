@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+    <TextView
+        android:id="@+id/Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:text="Login" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/ogmatrainner"
+        />
+
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="40dp"
+    android:paddingHorizontal="10dp">
 
     <EditText
         android:id="@+id/eTNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
         android:layout_marginTop="20dp"
-        android:hint="Introduce tu usuario"/>
+        android:gravity="center"
+        android:hint="Usuario"/>
 
     <EditText
         android:id="@+id/eTPassoword"
@@ -25,16 +52,25 @@
         android:layout_below="@+id/eTNombre"
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
-        android:hint="Introduce tu contraseña"/>
+        android:gravity="center"
+        android:hint="Contraseña"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <RadioButton
         android:id="@+id/rBTerminos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/eTPassoword"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Acepto términos y condiciones"/>
+        android:layout_marginTop="20dp"
+        android:text="Acepto Términos y Condiciones" />
 
     <Button
         android:id="@+id/bIngresar"
@@ -43,6 +79,16 @@
         android:layout_below="@+id/rBTerminos"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Ingresar"/>
+        android:text="Ingresar" />
 
-</RelativeLayout>
+
+    <TextView
+        android:id="@+id/Registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Registrar" />
+</LinearLayout>
+
+
+</LinearLayout>

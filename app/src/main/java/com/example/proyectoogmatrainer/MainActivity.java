@@ -48,26 +48,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_principal,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.lista:
-                Intent intent = new Intent(MainActivity.this, CargarMaquinasActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.list_maquinas:
-                setContentView(R.layout.view_lista_maquinas);
-            default:
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void validarCredenciales() {
         // Obtener los valores de usuario y contraseña ingresados

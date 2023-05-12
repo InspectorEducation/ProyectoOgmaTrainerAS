@@ -1,75 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingBottom="70dp">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="50dp">
+
+        <TextView
+            android:id="@+id/Editandomaquina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editando Reserva"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp">
+
+        <EditText
+            android:id="@+id/etEditarNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Nombre de la Maquina"
+            android:inputType="textPersonName"
+            android:paddingTop="20dp"
+            android:ems="13"
+            android:paddingBottom="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/etEditarDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="50dp"
+            android:paddingBottom="20dp"
+            android:ems="13"
+            android:hint="Descripcion"
+            android:layout_gravity="center"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEditarNombre" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Editando maquina"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="50dp"
 
-    <EditText
-        android:id="@+id/etEditarNombre"
-        android:layout_width="278dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Nombre de la maquina"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        >
 
-    <EditText
-        android:id="@+id/etEditarDescripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Edad"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditarNombre" />
+        <Button
+            android:id="@+id/btnGuardarCambiosMaquina"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar"
+            android:ems="8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEditarDescripcion" />
 
-    <Button
-        android:id="@+id/btnGuardarCambiosMaquina"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="112dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginRight="200dp"
-        android:text="Guardar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditarDescripcion" />
+        <Button
+            android:id="@+id/btnCancelarEdicionMaquina"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="8"
+            android:text="Cancelar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnGuardarCambiosMaquina"
+            app:layout_constraintTop_toBottomOf="@+id/etEditarDescripcion" />
 
-    <Button
-        android:id="@+id/btnCancelarEdicionMaquina"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Cancelar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toEndOf="@+id/btnGuardarCambiosMaquina"
-        app:layout_constraintTop_toBottomOf="@+id/etEditarDescripcion" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+
+    </LinearLayout>

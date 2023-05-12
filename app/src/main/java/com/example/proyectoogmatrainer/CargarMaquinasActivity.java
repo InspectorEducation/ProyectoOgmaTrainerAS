@@ -120,16 +120,22 @@ public class CargarMaquinasActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.lista:
-                break;
             case R.id.list_maquinas:
-                finish();
                 setContentView(R.layout.view_lista_maquinas);
+                finish();
+                break;
+            case R.id.rutinas:
+                Intent intent=new Intent(CargarMaquinasActivity.this,RutinaActivity.class);
+                startActivity(intent);
+                //finish();
+                break;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
     public void refrescarListaDeMaquinas() {
         /*

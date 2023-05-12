@@ -7,11 +7,7 @@
         app:showAsAction="never"
         >
     </item>
-    <item android:id="@+id/lista"
-        android:title="Lista"
-        app:showAsAction="never"
-        >
-    </item>
+
     <item android:id="@+id/rutinas"
         android:title="Rutinas"
         app:showAsAction="never"
