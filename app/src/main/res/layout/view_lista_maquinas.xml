@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clickable="true">
 
     <!-- Título "Maquinas" -->
     <TextView
@@ -49,7 +50,8 @@
                     android:layout_width="180dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:onClick="onMaquinaSeleccionada"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,7 +71,8 @@
                     android:layout_width="180dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:onClick="onBarraDominacion"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -97,7 +100,8 @@
                     android:layout_width="180dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:onClick="onBandaElastica"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -118,12 +122,13 @@
                     android:layout_width="180dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:onClick="onBicicleta"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Otra Máquina" />
+                    android:text="Bicicleta Eliptica" />
             </LinearLayout>
         </LinearLayout>
 
@@ -146,12 +151,13 @@
                     android:layout_width="180dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:onClick="onCintaCorrer"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Otra Máquina" />
+                    android:text="Cinta para Correr" />
             </LinearLayout>
 
             <!-- Máquina 6 -->
@@ -166,12 +172,13 @@
                     android:layout_width="180dp"
                     android:layout_height="100dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:onClick="onPrensaPiernas"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Otra Máquina" />
+                    android:text="Prensa de Piernas" />
 
             </LinearLayout>
         </LinearLayout>

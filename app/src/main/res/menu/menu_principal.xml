@@ -2,15 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/lista"
-        android:title="Lista"
-        app:showAsAction="never"
-        >
-    </item>
-
     <item android:id="@+id/list_maquinas"
         android:title="Maquinas"
         app:showAsAction="never"
         >
     </item>
+    <item android:id="@+id/lista"
+        android:title="Lista"
+        app:showAsAction="never"
+        >
+    </item>
+    <item android:id="@+id/rutinas"
+        android:title="Rutinas"
+        app:showAsAction="never"
+        >
+    </item>
+    <item android:id="@+id/formHistorialMed"
+        android:title="Historial Medico"
+        app:showAsAction="never"
+        >
+    </item>
+
 </menu>

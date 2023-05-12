@@ -4,9 +4,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -27,6 +30,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
     private AdaptadorMaquinas adaptadorMaquinas;
     private MaquinaController maquinaController;
     private FloatingActionButton fabAgregarMaquina;
+    private int maquina_seleccionada;
 
     @Override
     protected void onResume() {
@@ -38,6 +42,11 @@ public class CargarMaquinasActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cargar_maquinas);
+
+        Bundle extras = getIntent().getExtras();
+        maquina_seleccionada = extras.getInt("codigo_maquina");
+        System.out.println("MAQUINA SELECCIONADA");
+        System.out.println(maquina_seleccionada);
 
         maquinaController = new MaquinaController(CargarMaquinasActivity.this);
 
@@ -102,6 +111,25 @@ public class CargarMaquinasActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.lista:
+                break;
+            case R.id.list_maquinas:
+                finish();
+                setContentView(R.layout.view_lista_maquinas);
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void refrescarListaDeMaquinas() {
         /*

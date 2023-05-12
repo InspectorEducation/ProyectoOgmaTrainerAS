@@ -56,26 +56,26 @@
         android:paddingLeft="80dp"
         >
 
-    <TextView
-        android:id="@+id/tvFechaReserva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2023-05-11"
-        android:textSize="16dp"
-        android:gravity="end"
-        android:paddingLeft="20dp"
-        />
+        <TextView
+            android:id="@+id/tvFechaReserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2023-05-11"
+            android:textSize="16dp"
+            android:gravity="end"
+            android:paddingLeft="20dp"
+            />
 
-    <TextView
-        android:id="@+id/tvHoraReserva"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="14:30 - 16:00"
-        android:textSize="16dp"
-        android:gravity="end"
-        android:paddingTop="8dp"
-        android:paddingLeft="8dp"
-        />
+        <TextView
+            android:id="@+id/tvHoraReserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14:30 - 16:00"
+            android:textSize="16dp"
+            android:gravity="end"
+            android:paddingTop="8dp"
+            android:paddingLeft="8dp"
+            />
     </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">ProyectoOgmaTrainer</string>
+    <string name="app_name">OgmaTrainer</string>
+    <string-array name="maquinas_disponibles">
+        <item>Barra Dominacion</item>
+        <item>Banco press</item>
+        <item>Banda Elastica</item>
+        <item>Bicicleta Eliptica</item>
+        <item>Cinta para Correr</item>
+        <item>Prensa para piernas</item>
+    </string-array>
 </resources>
