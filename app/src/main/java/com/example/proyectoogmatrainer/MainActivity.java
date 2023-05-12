@@ -1,118 +1,98 @@
 package com.example.proyectoogmatrainer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
-
-import com.example.proyectoogmatrainer.controllers.MaquinaController;
-import com.example.proyectoogmatrainer.modelos.Maquina;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Maquina> listaDeMaquinas;
-    private RecyclerView recyclerView;
-    private AdaptadorMaquinas adaptadorMaquinas;
-    private MaquinaController maquinaController;
-    private FloatingActionButton fabAgregarMaquina;
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        refrescarListaDeMaquinas();
-    }
+    private EditText mUsuarioEditText;
+    private EditText mPasswordEditText;
+    private RadioButton mAceptoRadioButton;
+    private Button mIngresarButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        //setTheme(R.style.Theme_ProyectSplashAndMenu);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toast.makeText(this,"Cargada", Toast.LENGTH_LONG).show();
 
-        maquinaController = new MaquinaController(MainActivity.this);
+        mUsuarioEditText = findViewById(R.id.eTNombre);
+        mPasswordEditText = findViewById(R.id.eTPassoword);
+        mAceptoRadioButton = findViewById(R.id.rBTerminos);
+        mIngresarButton = findViewById(R.id.bIngresar);
 
-        recyclerView = findViewById(R.id.recyclerViewMaquina);
-        fabAgregarMaquina = findViewById(R.id.fabAgregarMaquina);
-
-        listaDeMaquinas = new ArrayList<>();
-        adaptadorMaquinas = new AdaptadorMaquinas(listaDeMaquinas);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adaptadorMaquinas);
-
-        // Una vez que ya configuramos el RecyclerView le ponemos los datos de la BD
-        refrescarListaDeMaquinas();
-
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
-            @Override // Un toque sencillo
-            public void onClick(View view, int position) {
-                // Pasar a la actividad EditarMaquinaActivity.java
-                Maquina maquinaSeleccionada = listaDeMaquinas.get(position);
-                Intent intent = new Intent(MainActivity.this, EditarMaquinaActivity.class);
-                intent.putExtra("idMaquina", maquinaSeleccionada.getId());
-                intent.putExtra("nombreMaquina", maquinaSeleccionada.getNombre());
-                intent.putExtra("descripcionMaquina", maquinaSeleccionada.getDescripcion());
-                startActivity(intent);
-            }
-
-            @Override // Un toque largo
-            public void onLongClick(View view, int position) {
-                final Maquina maquinaParaEliminar = listaDeMaquinas.get(position);
-                AlertDialog dialog = new AlertDialog
-                        .Builder(MainActivity.this)
-                        .setPositiveButton("Sí, eliminar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                maquinaController.eliminarMaquinas(maquinaParaEliminar);
-                                refrescarListaDeMaquinas();
-                            }
-                        })
-                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .setTitle("Confirmar")
-                        .setMessage("¿Eliminar a la maquina " + maquinaParaEliminar.getNombre() + "?")
-                        .create();
-                dialog.show();
-
-            }
-        }));
-
-        // Listener del FAB
-        fabAgregarMaquina.setOnClickListener(new View.OnClickListener() {
+        mIngresarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Simplemente cambiamos de actividad
-                Intent intent = new Intent(MainActivity.this, AgregarMaquinaActivity.class);
-                startActivity(intent);
+                validarCredenciales();
             }
         });
     }
-        public void refrescarListaDeMaquinas() {
-            /*
-             * ==========
-             * Justo aquí obtenemos la lista de la BD
-             * y se la ponemos al RecyclerView
-             * ============
-             *
-             * */
-            if (adaptadorMaquinas == null) return;
-            Toast.makeText(MainActivity.this, "Se refresco", Toast.LENGTH_SHORT).show();
-            listaDeMaquinas = maquinaController.obtenerMaquinas();
-            adaptadorMaquinas.setListaDeMaquinas(listaDeMaquinas);
-            adaptadorMaquinas.notifyDataSetChanged();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.lista:
+                Intent intent = new Intent(MainActivity.this, CargarMaquinasActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.list_maquinas:
+                setContentView(R.layout.view_lista_maquinas);
+            default:
+                break;
         }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void validarCredenciales() {
+        // Obtener los valores de usuario y contraseña ingresados
+        String usuario = mUsuarioEditText.getText().toString().trim();
+        String contrasena = mPasswordEditText.getText().toString().trim();
+
+        // Validar si los campos están vacíos
+        if (TextUtils.isEmpty(usuario)) {
+            mUsuarioEditText.setError("Por favor ingrese su usuario");
+            mUsuarioEditText.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(contrasena)) {
+            mPasswordEditText.setError("Por favor ingrese su contraseña");
+            mPasswordEditText.requestFocus();
+            return;
+        }
+
+        // Validar las credenciales del usuario
+        if (usuario.equals("Admin") && contrasena.equals("123")) {
+            // Las credenciales son correctas, se puede iniciar sesión
+            Toast.makeText(getApplicationContext(), "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, CargarMaquinasActivity.class);
+            startActivity(intent);
+        } else {
+            // Las credenciales son incorrectas
+            Toast.makeText(getApplicationContext(), "Credenciales incorrectas, por favor intente de nuevo", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
