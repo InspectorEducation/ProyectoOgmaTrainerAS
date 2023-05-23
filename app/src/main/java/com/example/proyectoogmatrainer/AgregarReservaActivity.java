@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.proyectoogmatrainer.controllers.MaquinaController;
 import com.example.proyectoogmatrainer.modelos.Maquina;
 
-public class AgregarMaquinaActivity extends AppCompatActivity {
+public class AgregarReservaActivity extends AppCompatActivity {
     private Button btnAgregarMaquina, btnCancelarNuevaMaquina;
     private EditText etNombre;
     private Spinner etDescripcion;
@@ -46,7 +46,7 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
         etDescripcion.setAdapter(adapter);
 
         // Crear el controlador
-        maquinaController = new MaquinaController(AgregarMaquinaActivity.this);
+        maquinaController = new MaquinaController(AgregarReservaActivity.this);
 
         //Iteam seleccionado
         etDescripcion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -91,7 +91,7 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
                 long id = maquinaController.nuevaMaquina(nuevaMaquina);
                 if (id == -1) {
                     // De alguna manera ocurrió un error
-                    Toast.makeText(AgregarMaquinaActivity.this, "Error al guardar. Intenta de nuevo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AgregarReservaActivity.this, "Error al guardar. Intenta de nuevo", Toast.LENGTH_SHORT).show();
                 } else {
                     // Terminar
                     finish();

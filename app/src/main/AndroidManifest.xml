@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditarMaquinaActivity" />
-        <activity android:name=".AgregarMaquinaActivity" />
+        <activity android:name=".EditarReservaActivity" />
+        <activity android:name=".AgregarReservaActivity" />
         <activity android:name=".CargarMaquinasActivity" />
         <activity android:name=".RutinaActivity"/>
     </application>

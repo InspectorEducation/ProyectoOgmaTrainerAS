@@ -67,7 +67,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
             public void onClick(View view, int position) {
                 // Pasar a la actividad EditarMaquinaActivity.java
                 Maquina maquinaSeleccionada = listaDeMaquinas.get(position);
-                Intent intent = new Intent(CargarMaquinasActivity.this, EditarMaquinaActivity.class);
+                Intent intent = new Intent(CargarMaquinasActivity.this, EditarReservaActivity.class);
                 intent.putExtra("idMaquina", maquinaSeleccionada.getId());
                 intent.putExtra("nombreMaquina", maquinaSeleccionada.getNombre());
                 intent.putExtra("descripcionMaquina", maquinaSeleccionada.getDescripcion());
@@ -105,7 +105,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Simplemente cambiamos de actividad
-                Intent intent = new Intent(CargarMaquinasActivity.this, AgregarMaquinaActivity.class);
+                Intent intent = new Intent(CargarMaquinasActivity.this, AgregarReservaActivity.class);
                 intent.putExtra("codigo_maquina", MAQUINA_SELECCIONADA);
                 startActivity(intent);
             }

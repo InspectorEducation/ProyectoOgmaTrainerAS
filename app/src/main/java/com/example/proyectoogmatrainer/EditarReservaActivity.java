@@ -6,13 +6,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyectoogmatrainer.controllers.MaquinaController;
 import com.example.proyectoogmatrainer.modelos.Maquina;
 
-public class EditarMaquinaActivity extends AppCompatActivity {
+public class EditarReservaActivity extends AppCompatActivity {
     private EditText etEditarNombre, etEditarDescripcion;
     private Button btnGuardarCambios, btnCancelarEdicion;
     private Maquina maquina;//La maquina que vamos a estar editando
@@ -31,7 +30,7 @@ public class EditarMaquinaActivity extends AppCompatActivity {
             return;
         }
         // Instanciar el controlador de las maquinas
-        maquinaController = new MaquinaController(EditarMaquinaActivity.this);
+        maquinaController = new MaquinaController(EditarReservaActivity.this);
 
         // Rearmar la maquina
         // Nota: igualmente solamente podríamos mandar el id y recuperar la maquina de la BD
@@ -96,7 +95,7 @@ public class EditarMaquinaActivity extends AppCompatActivity {
                 int filasModificadas = maquinaController.guardarCambios(maquinaConNuevosCambios);
                 if (filasModificadas != 1) {
                     // De alguna forma ocurrió un error porque se debió modificar únicamente una fila
-                    Toast.makeText(EditarMaquinaActivity.this, "Error guardando cambios. Intente de nuevo.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditarReservaActivity.this, "Error guardando cambios. Intente de nuevo.", Toast.LENGTH_SHORT).show();
                 } else {
                     // Si las cosas van bien, volvemos a la principal
                     // cerrando esta actividad
