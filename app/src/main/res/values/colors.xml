@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_200">#81c9fa</color>
     <color name="colorbutton">#81c9fa</color>
     <color name="colorpartesuperior">#003785</color>
     <color name="colorcalendario">#1465bb</color>
