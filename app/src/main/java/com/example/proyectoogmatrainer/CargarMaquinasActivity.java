@@ -30,12 +30,14 @@ public class CargarMaquinasActivity extends AppCompatActivity {
     private AdaptadorMaquinas adaptadorMaquinas;
     private MaquinaController maquinaController;
     private FloatingActionButton fabAgregarMaquina;
-    private int maquina_seleccionada;
+    private int MAQUINA_SELECCIONADA;
 
     @Override
     protected void onResume() {
         super.onResume();
-        refrescarListaDeMaquinas();
+        Bundle extras = getIntent().getExtras();
+        MAQUINA_SELECCIONADA = extras.getInt("codigo_maquina");
+        refrescarListaDeReservasPorMaquina(MAQUINA_SELECCIONADA);
     }
 
     @Override
@@ -44,10 +46,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cargar_maquinas);
 
         Bundle extras = getIntent().getExtras();
-        maquina_seleccionada = extras.getInt("codigo_maquina");
-        System.out.println("MAQUINA SELECCIONADA");
-        System.out.println(maquina_seleccionada);
-
+        MAQUINA_SELECCIONADA = extras.getInt("codigo_maquina");
         maquinaController = new MaquinaController(CargarMaquinasActivity.this);
 
         recyclerView = findViewById(R.id.recyclerViewMaquina);
@@ -61,7 +60,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
         recyclerView.setAdapter(adaptadorMaquinas);
 
         // Una vez que ya configuramos el RecyclerView le ponemos los datos de la BD
-        refrescarListaDeMaquinas();
+        refrescarListaDeReservasPorMaquina(MAQUINA_SELECCIONADA);
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override // Un toque sencillo
@@ -72,6 +71,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
                 intent.putExtra("idMaquina", maquinaSeleccionada.getId());
                 intent.putExtra("nombreMaquina", maquinaSeleccionada.getNombre());
                 intent.putExtra("descripcionMaquina", maquinaSeleccionada.getDescripcion());
+                intent.putExtra("id_maquina",maquinaSeleccionada.getId_maquina());
                 startActivity(intent);
             }
 
@@ -84,7 +84,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 maquinaController.eliminarMaquinas(maquinaParaEliminar);
-                                refrescarListaDeMaquinas();
+                                refrescarListaDeReservasPorMaquina(MAQUINA_SELECCIONADA);
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -106,6 +106,7 @@ public class CargarMaquinasActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Simplemente cambiamos de actividad
                 Intent intent = new Intent(CargarMaquinasActivity.this, AgregarMaquinaActivity.class);
+                intent.putExtra("codigo_maquina", MAQUINA_SELECCIONADA);
                 startActivity(intent);
             }
         });
@@ -135,19 +136,14 @@ public class CargarMaquinasActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-    public void refrescarListaDeMaquinas() {
-        /*
-         * ==========
-         * Justo aquí obtenemos la lista de la BD
-         * y se la ponemos al RecyclerView
-         * ============
-         *
-         * */
+    public void refrescarListaDeReservasPorMaquina(int id) {
         if (adaptadorMaquinas == null) return;
-        Toast.makeText(CargarMaquinasActivity.this, "Se refresco", Toast.LENGTH_SHORT).show();
-        listaDeMaquinas = maquinaController.obtenerMaquinas();
+        Toast.makeText(CargarMaquinasActivity.this, "Se refresco por id "+id, Toast.LENGTH_SHORT).show();
+        listaDeMaquinas = maquinaController.obtenerReservasPorID(id);
+        for (Maquina maquina: listaDeMaquinas
+             ) {
+            maquina.toString();
+        }
         adaptadorMaquinas.setListaDeMaquinas(listaDeMaquinas);
         adaptadorMaquinas.notifyDataSetChanged();
     }

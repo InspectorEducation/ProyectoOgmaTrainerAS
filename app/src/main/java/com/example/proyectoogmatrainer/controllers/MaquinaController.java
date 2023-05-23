@@ -31,6 +31,8 @@ public class MaquinaController {
         valoresParaInsertar.put("nombre", maquina.getNombre());
         valoresParaInsertar.put("descripcion", maquina.getDescripcion());
         valoresParaInsertar.put("fechaReserva",maquina.getFechaReserva());
+        valoresParaInsertar.put("id_maquina",maquina.getId_maquina());
+
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
     }
 
@@ -47,17 +49,19 @@ public class MaquinaController {
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }
 
-    public ArrayList<Maquina> obtenerMaquinas() {
+    public ArrayList<Maquina> obtenerReservasPorID(int id_maquina) {
         ArrayList<Maquina> maquinas = new ArrayList<>();
         // readable porque no vamos a modificar, solamente leer
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getReadableDatabase();
         // SELECT nombre, descripcion, id
-        String[] columnasAConsultar = {"nombre", "descripcion","fechaReserva","id"};
+        String[] columnasAConsultar = {"nombre", "descripcion","fechaReserva","id","id_maquina"};
+        String seleccion = "id_maquina = ?";
+        String[] seleccionArgs = {String.valueOf(id_maquina)};
         Cursor cursor = baseDeDatos.query(
                 NOMBRE_TABLA,//from maquinas
                 columnasAConsultar,
-                null,
-                null,
+                seleccion,
+                seleccionArgs,
                 null,
                 null,
                 null
@@ -69,7 +73,6 @@ public class MaquinaController {
                 lista vacía
              */
             return maquinas;
-
         }
         // Si no hay datos, igualmente regresamos la lista vacía
         if (!cursor.moveToFirst()) return maquinas;
@@ -78,12 +81,13 @@ public class MaquinaController {
         // datos a la lista de maquinas
         do {
             // El 0 es el número de la columna, como seleccionamos
-            // nombre, descripcioon,id entonces el nombre es 0, descripcion 1 e fecha es 2, id es 3
+            // nombre, descripcioon,id entonces el nombre es 0, descripcion 1 e fecha es 2, id es 3, id_maquina es 4
             String nombreObtenidoDeBD = cursor.getString(0);
             String descripcionObtenidaDeBD = cursor.getString(1);
             String fechaReservaObtenidaDeBd = cursor.getString(2);
-            long idMaquina = cursor.getLong(3);
-            Maquina maquinaObtenidaDeBD = new Maquina(nombreObtenidoDeBD, descripcionObtenidaDeBD, fechaReservaObtenidaDeBd,idMaquina);
+            long id_reserva = cursor.getInt(3);
+
+            Maquina maquinaObtenidaDeBD = new Maquina(nombreObtenidoDeBD, descripcionObtenidaDeBD, fechaReservaObtenidaDeBd,id_reserva,id_maquina);
             maquinas.add(maquinaObtenidaDeBD);
         } while (cursor.moveToNext());
 

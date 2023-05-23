@@ -17,7 +17,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(String.format("CREATE TABLE %s(id integer primary key autoincrement, nombre text, descripcion text, fechaReserva text)", NOMBRE_TABLA_MAQUINA));
+        db.execSQL(String.format("CREATE TABLE %s(id integer primary key autoincrement, nombre text, id_maquina integer, descripcion text, fechaReserva text)", NOMBRE_TABLA_MAQUINA));
     }
 
     @Override

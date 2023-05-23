@@ -21,6 +21,7 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
     private Spinner etDescripcion;
     private DatePicker dtFechaReserva;
     private MaquinaController maquinaController;
+    private Integer codigo_maquina;
 
     private String maquina_seleccionada;
 
@@ -28,6 +29,9 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_maquina);
+
+        Bundle extras = getIntent().getExtras();
+        codigo_maquina = extras.getInt("codigo_maquina");
 
         // Instanciar vistas
         etNombre = findViewById(R.id.etNombre);
@@ -81,9 +85,9 @@ public class AgregarMaquinaActivity extends AppCompatActivity {
                 }
 
                 // Ya pasó la validación
-                System.out.println("MAQUINA PARA GUARDAR");
-                System.out.println(maquina_seleccionada);
-                Maquina nuevaMaquina = new Maquina(nombre, maquina_seleccionada,fechaComoCadena);
+                Maquina nuevaMaquina = new Maquina(nombre, maquina_seleccionada,fechaComoCadena,codigo_maquina);
+                System.out.println("NUEVA MAQUINA TO STRING");
+                System.out.println(nuevaMaquina.toString());
                 long id = maquinaController.nuevaMaquina(nuevaMaquina);
                 if (id == -1) {
                     // De alguna manera ocurrió un error

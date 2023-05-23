@@ -35,10 +35,11 @@ public class EditarMaquinaActivity extends AppCompatActivity {
 
         // Rearmar la maquina
         // Nota: igualmente solamente podríamos mandar el id y recuperar la maquina de la BD
-        long idMaquina = extras.getLong("idMaquina");
+        long id_reserva = extras.getLong("idMaquina");
         String nombreMaquina = extras.getString("nombreMaquina");
         String descripcionMaquina = extras.getString("descripcionMaquina");
-        maquina = new Maquina(nombreMaquina, descripcionMaquina, "2023-05-11",idMaquina );
+        int id_maquina = extras.getInt("id_maquina");
+        maquina = new Maquina(nombreMaquina, descripcionMaquina, "2023-05-11",id_reserva,id_maquina );
 
 
         // Ahora declaramos las vistas
@@ -91,7 +92,7 @@ public class EditarMaquinaActivity extends AppCompatActivity {
                     return;
                 }
                 // Si llegamos hasta aquí es porque los datos ya están validados
-                Maquina maquinaConNuevosCambios = new Maquina(nuevoNombre, nuevaDescri,"2023-05-11" ,maquina.getId());
+                Maquina maquinaConNuevosCambios = new Maquina(nuevoNombre, nuevaDescri,"2023-05-11" ,maquina.getId(), maquina.getId_maquina());
                 int filasModificadas = maquinaController.guardarCambios(maquinaConNuevosCambios);
                 if (filasModificadas != 1) {
                     // De alguna forma ocurrió un error porque se debió modificar únicamente una fila
