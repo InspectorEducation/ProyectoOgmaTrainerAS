@@ -4,44 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondoopcion1"
+
     >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-black"
+        android:text="Pectoral"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-3dp" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="321dp"
         android:layout_height="389dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pectoral" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="309dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="40dp"
-        android:text="Pectoral"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/pectoral"
+        android:background="#4B92A5EA"
+        />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="314dp"
-        android:layout_height="145dp"
-        android:layout_marginBottom="72dp"
-        android:text="Press de banca:\n 3 series de 8-10 repeticiones.\n
+        android:layout_width="325dp"
+        android:layout_height="230dp"
+        android:layout_marginBottom="32dp"
+        android:text="Press de banca:\n\n 3 series de 8-10 repeticiones.\n
 Aperturas con mancuernas: 3 series de 10-12 repeticiones.\n
 Flexiones de pecho: 3 series de 10-15 repeticiones.\n
 En este entrenamiento, se incluyen tres ejercicios efectivos para trabajar el pecho: el press de banca, las aperturas con mancuernas y las flexiones de pecho. Estos ejercicios permiten trabajar los músculos de diferentes ángulos y con distintos rangos de movimiento para lograr un trabajo completo del pecho en poco tiempo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.587" />
+        app:layout_constraintVertical_bias="1.0"
+        android:textColor="@color/white"
+        android:background="#61060607"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

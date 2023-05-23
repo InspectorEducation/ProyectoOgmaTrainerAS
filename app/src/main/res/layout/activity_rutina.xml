@@ -45,7 +45,7 @@
         android:layout_width="100dp"
         android:layout_height="110dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="65dp"
         android:background="#16FDFDFD"
         android:src="@drawable/pectoral" />
 
@@ -54,8 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="131dp"
-        android:layout_marginTop="259dp"
-        android:background="#982424"
+        android:layout_marginTop="269dp"
         android:text="ver mas..."></Button>
     <TextView
 
@@ -68,9 +67,6 @@
         android:textAllCaps="true"
         android:textColor="#EDE7E7"
         android:textColorHint="#619F8F8F" />
-
-
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="100dp"
@@ -83,7 +79,7 @@
         android:id="@+id/botonpierna"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="430dp"
         android:layout_marginHorizontal="131dp"
         android:text="ver mas...">
     </Button>
@@ -126,7 +122,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
         android:layout_marginTop="505dp"
         android:layout_toEndOf="@id/imageView4"
         android:paddingLeft="10dp"
@@ -139,8 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="131dp"
-        android:layout_marginTop="590dp"
-        android:background="#A3BC2121"
+        android:layout_marginTop="595dp"
         android:text="ver mas...">
 
     </Button>

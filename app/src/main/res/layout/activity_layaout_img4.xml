@@ -4,37 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/fondoopcion1">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-black"
+        android:text="Pierna"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-3dp" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="321dp"
         android:layout_height="389dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pierna" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="309dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="40dp"
-        android:text="Pierna"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/pierna"
+        android:background="#4B92A5EA"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="314dp"
         android:layout_height="169dp"
         android:layout_marginBottom="72dp"
-        android:text="Sentadillas (3 series x 10 repeticiones): Ponte de pie con los pies separados al ancho de los hombros. Baja lentamente doblando las rodillas y mantén la espalda recta. Luego, levanta el cuerpo hasta volver a la posición inicial.\n\n
+        android:text="Sentadillas:\n\n (3 series x 10 repeticiones): Ponte de pie con los pies separados al ancho de los hombros. Baja lentamente doblando las rodillas y mantén la espalda recta. Luego, levanta el cuerpo hasta volver a la posición inicial.\n\n
 
 Zancadas (3 series x 10 repeticiones): Da un gran paso hacia adelante con el pie derecho, bajando las caderas hasta que la rodilla derecha forme un ángulo de 90 grados. "
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,5 +49,7 @@ Zancadas (3 series x 10 repeticiones): Da un gran paso hacia adelante con el pie
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:textColor="@color/white"
+        android:background="#61060607"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

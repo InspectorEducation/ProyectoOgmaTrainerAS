@@ -4,44 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondoopcion1"
     >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-black"
+        android:text="Biceps"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-3dp" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="321dp"
         android:layout_height="389dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/biceps" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="309dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="40dp"
-        android:text="Bicep"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/biceps"
+        android:background="#4B92A5EA"/>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="354dp"
-        android:layout_height="185dp"
-        android:layout_marginBottom="62dp"
-        android:text="Curl de bíceps: Toma una mancuerna o un objeto pesado y coloca los brazos a los lados del cuerpo con las palmas hacia adelante. Flexiona los codos y levanta el peso hacia los hombros, manteniendo los codos cerca del cuerpo. Realiza 3 series de 12-15 repeticiones.
+        android:layout_width="340dp"
+        android:layout_height="282dp"
+        android:background="#61060607"
+        android:text="Curl de bíceps:\n\n Toma una mancuerna o un objeto pesado y coloca los brazos a los lados del cuerpo con las palmas hacia adelante. Flexiona los codos y levanta el peso hacia los hombros, manteniendo los codos cerca del cuerpo. Realiza 3 series de 12-15 repeticiones.
 \n\nMartillo de bíceps: Toma una mancuerna o un objeto pesado y coloca los brazos a los lados del cuerpo con las palmas enfrentadas. Flexiona los codos y levanta el peso hacia los hombros, manteniendo los codos cerca del cuerpo. Realiza 3 series de 12-15 repeticiones.
 
 "
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

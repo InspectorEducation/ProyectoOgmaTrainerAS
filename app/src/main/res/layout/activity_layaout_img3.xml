@@ -4,37 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/fondoopcion1">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-black"
+        android:text="Abdomen"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-3dp" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="321dp"
         android:layout_height="389dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abdomen" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="309dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="40dp"
-        android:text="Abdomen"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/abdomen"
+        android:background="#4B92A5EA"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="314dp"
         android:layout_height="169dp"
         android:layout_marginBottom="72dp"
-        android:text="Plancha frontal: Mantén tu cuerpo recto y apoya los antebrazos en el suelo, con los codos debajo de los hombros. Mantén la posición durante 30 segundos, descansa y repite dos veces más.\n\n
+        android:text="Plancha frontal:\n\n Mantén tu cuerpo recto y apoya los antebrazos en el suelo, con los codos debajo de los hombros. Mantén la posición durante 30 segundos, descansa y repite dos veces más.\n\n
 
 Elevación de piernas: Acuéstate boca arriba con las manos debajo de las caderas. Eleva las piernas hacia el techo sin arquear la espalda. Baja las piernas sin tocar el suelo y repite el movimiento durante 12 repeticiones."
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,5 +47,8 @@ Elevación de piernas: Acuéstate boca arriba con las manos debajo de las cadera
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:textColor="@color/white"
+        android:background="#61060607"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
