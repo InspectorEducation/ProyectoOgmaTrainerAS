@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="16dp"
+tools:context=".MainActivity"
+    android:background="@drawable/imagelanegra">
+
+<TextView
+    android:id="@+id/tvTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Registro de datos"
+    android:gravity="center"
+    android:textSize="24sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/tvNombre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvTitle"
+    android:gravity="center"
+    android:layout_marginTop="16dp"
+    android:text="Nombres" />
+
+<EditText
+    android:id="@+id/etNombre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvNombre"
+    android:gravity="center"
+    android:hint="Ingrese sus nombres" />
+
+<TextView
+    android:id="@+id/tvIdentificacion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/etNombre"
+    android:layout_marginTop="16dp"
+    android:gravity="center"
+    android:text="Número de identificación" />
+
+<EditText
+    android:id="@+id/etIdentificacion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvIdentificacion"
+    android:gravity="center"
+    android:hint="Ingrese su número de identificación"
+    android:inputType="number" />
+
+<TextView
+    android:id="@+id/tvEdad"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/etIdentificacion"
+    android:layout_marginTop="16dp"
+    android:gravity="center"
+    android:text="Edad" />
+
+<EditText
+    android:id="@+id/etEdad"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvEdad"
+    android:gravity="center"
+    android:hint="Ingrese su edad"
+    android:inputType="number" />
+
+<TextView
+    android:id="@+id/tvCorreo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/etEdad"
+    android:layout_marginTop="16dp"
+    android:gravity="center"
+    android:text="Correo electrónico" />
+
+<EditText
+    android:id="@+id/etCorreo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvCorreo"
+    android:hint="Ingrese su correo electrónico"
+    android:gravity="center"
+    android:inputType="textEmailAddress" />
+
+<TextView
+    android:id="@+id/tvFoto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/etCorreo"
+    android:layout_marginTop="16dp"
+    android:gravity="center"
+    android:text="Foto de perfil" />
+
+<ImageView
+    android:id="@+id/ivFoto"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_below="@id/tvFoto"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/fotoregistro" />
+
+<Button
+    android:id="@+id/btnSubirFoto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ivFoto"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="16dp"
+    android:text="Subir foto" />
+
+</RelativeLayout>

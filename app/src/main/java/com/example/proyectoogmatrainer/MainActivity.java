@@ -78,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void onRegistro(View view) {
+        setContentView(R.layout.historiaclinica);
+    }
+
     public void onMaquinaSeleccionada(View view) {
         Intent intent = new Intent(MainActivity.this, CargarMaquinasActivity.class);
         intent.putExtra("codigo_maquina",102);
